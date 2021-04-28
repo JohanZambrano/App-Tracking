@@ -1,0 +1,8 @@
+{
+  "name": "dibuja",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

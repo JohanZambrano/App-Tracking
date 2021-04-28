@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark" >
+  
+      <ion-buttons slot="start">
+        <ion-menu-button color="warning" menu="primerMenu"></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-title 
+        stacked class="my-title" 
+        color="warning">
+        <div font size=4 align="center"><strong>DeliveryTracking - 2021</strong></div>
+        <div font size=1 align="center"><i><H6>Tomar foto evidencia</H6></i></div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-footer >
+    <ion-toolbar color="dark" >
+      <ion-title color="warning">
+        <div align="center" style="font-size: 0.7rem"><strong>HSYS 4.0</strong></div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
+  <ion-content padding class="tab5-content">
+    
+    <ion-tabs>
+        <ion-tab-bar slot="bottom">
+            
+            <ion-tab-button (click)="clickCancel()" disabled = "{{ buttonState }}">
+                <ion-icon name="close-circle-outline"> </ion-icon>                
+            </ion-tab-button>
+    
+            
+    
+            <ion-tab-button (click)="clickSave()" disabled = "{{ buttonState }}">
+                <ion-icon name="checkmark-circle-outline"> </ion-icon>               
+            </ion-tab-button>
+        </ion-tab-bar>
+    
+    </ion-tabs>
+
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12" *ngFor="let photo of photos; index as position">
+              <ion-img src="{{photo.base64 ? photo.base64 : photo.webviewPath}}"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-fab vertical="bottom" horizontal ="center" slot="fixed">
+        <ion-fab-button (click)="newPhoto()" disabled = "{{ !buttonState }}">
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+  
+  
+

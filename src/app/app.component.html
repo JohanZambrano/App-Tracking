@@ -1,0 +1,70 @@
+<ion-app>
+  <ion-menu side="start" menuId="primerMenu" contentId="principal">
+
+    <ion-header [translucent]="true">
+      <ion-toolbar color="dark" >
+    
+        <ion-buttons slot="start">
+          <ion-menu-button color="warning" menu="primerMenu"></ion-menu-button>
+        </ion-buttons>
+    
+        
+        <ion-title 
+          stacked class="my-title" 
+          color="warning">
+          <div font size=4 align="center"><strong>DT - Menu</strong></div>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-footer >
+      <ion-toolbar color="dark" >
+        <ion-title color="warning">
+          <div align="center" style="font-size: 0.7rem"><strong>HSYS 4.0</strong></div>
+        </ion-title>
+      </ion-toolbar>
+    </ion-footer>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/">
+            <ion-icon name="archive" slot="start"></ion-icon>
+            <ion-label>Inicio</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+  
+        <ion-menu-toggle>
+          <ion-item routerLink="/alistardatos">
+            <ion-icon name="paper-plane" slot="start"></ion-icon>
+            <ion-label>Alistar Datos</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+  
+        <ion-menu-toggle>
+          <ion-item routerLink="/obtenerdatos">
+            <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
+            <ion-label>Subir datos</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+            <ion-item routerLink="/revisarestado">
+              <ion-icon name="book-outline" slot="start"></ion-icon>
+              <ion-label>Estados</ion-label>
+            </ion-item>
+        </ion-menu-toggle>
+
+        <!--<ion-menu-toggle>
+          <ion-item routerLink="/camara">
+            <ion-icon name="camera-outline" slot="start"></ion-icon>
+            <ion-label>Camara</ion-label>
+          </ion-item>
+        </ion-menu-toggle>-->
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="principal"></ion-router-outlet>
+</ion-app>

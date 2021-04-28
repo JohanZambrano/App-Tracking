@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-menu-button color="warning" menu="primerMenu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title stacked class="my-title" color="warning">
+      <div font size=4 align="center"><strong>DeliveryTracking - 2021</strong></div>
+      <div font size=1 align="center"><i>
+          <H6>Estados</H6>
+        </i></div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-title color="warning">
+      <div align="center" style="font-size: 0.7rem"><strong>HSYS 4.0</strong></div>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-content padding>
+  <ion-grid size="auto">
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Seleccione estado</ion-label>
+        <ion-select placeholder="Seleccione uno" (ionChange)="buscar($event)">
+          <ion-select-option value="s">Entregas efectivas</ion-select-option>
+          <ion-select-option value="n">Entregas no efectivas</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    
+    <ion-row *ngFor="let pedido of pedidos$ ">
+      <ion-col *ngIf="seleccion === 's' && pedido.Estado === 1" size="1.4" style="font-size: 0.5rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <div font align="rigth">{{ pedido.Pedido }}</div>
+      </ion-col>
+
+      <ion-col *ngIf="seleccion === 's' && pedido.Estado === 1" size="8.3" style="font-size: 0.8rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <ion-row class="item-2.0px" style="font-size: 0.7rem" class="item-10px">
+          <strong>{{ pedido.DestinoFinal }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 's' && pedido.Estado === 1" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Direccion: {{ pedido.Direccion }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 's' && pedido.Estado === 1" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Tel: {{ pedido.Tel }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 's' && pedido.Estado === 1" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Depto: {{ pedido.Depto }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 's' && pedido.Estado === 1" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Ciudad: {{ pedido.Ciudad }}</strong>
+        </ion-row>
+      </ion-col>
+
+      <ion-col *ngIf="seleccion === 's' && pedido.Estado === 1" size="2.2" style="font-size: 0.8rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <ion-row class="item-2.0px" style="font-size: 0.6rem" class="item-10px">
+          <strong>{{ pedido.Relacion_Id }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 's' && pedido.Estado === 1" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>{{ pedido.Relacion_Fec }}</strong>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let pedido of pedidos$ ">
+      <ion-col *ngIf="seleccion === 'n' && pedido.Estado === 3" size="1.4" style="font-size: 0.5rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <div font align="rigth">{{ pedido.Pedido }}</div>
+      </ion-col>
+
+      <ion-col *ngIf="seleccion === 'n' && pedido.Estado === 3" size="8.3" style="font-size: 0.8rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <ion-row class="item-2.0px" style="font-size: 0.7rem" class="item-10px">
+          <strong>{{ pedido.DestinoFinal }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 'n' && pedido.Estado === 3" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Direccion: {{ pedido.Direccion }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 'n' && pedido.Estado === 3" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Tel: {{ pedido.Tel }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 'n' && pedido.Estado === 3" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Depto: {{ pedido.Depto }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 'n' && pedido.Estado === 3" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>Ciudad: {{ pedido.Ciudad }}</strong>
+        </ion-row>
+      </ion-col>
+
+      <ion-col *ngIf="seleccion === 'n' && pedido.Estado === 3" size="2.2" style="font-size: 0.8rem;border: 1px solid;border-color: rgb(126, 123, 123);">
+        <ion-row class="item-2.0px" style="font-size: 0.6rem" class="item-10px">
+          <strong>{{ pedido.Relacion_Id }}</strong>
+        </ion-row>
+
+        <ion-row *ngIf="seleccion === 'n' && pedido.Estado === 3" class="item-2.0px" style="font-size: 0.5rem" class="item-10px">
+          <strong>{{ pedido.Relacion_Fec }}</strong>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
